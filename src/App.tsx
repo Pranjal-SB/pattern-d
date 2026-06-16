@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ConfigProvider, useConfig } from './state/context';
 import { applyTheme, readTheme, ThemeMode, writeTheme } from './state/theme';
 import { ControlPanel } from './ui/ControlPanel';
@@ -14,17 +14,12 @@ function AppShell() {
     writeTheme(theme);
   }, [theme]);
 
-  const layoutClassName = useMemo(
-    () => `app-shell app-shell--${theme}`,
-    [theme],
-  );
-
   return (
-    <div className={layoutClassName}>
+    <div className="app-shell">
       <header className="app-header">
-        <div>
-          <p className="eyebrow">pattern&apos;d</p>
-          <h1>Pattern studio</h1>
+        <div className="brand">
+          <span className="brand-name">pattern<span>'</span>d</span>
+          <span className="brand-tag">Studio</span>
         </div>
         <div className="header-actions">
           <ThemeToggle theme={theme} onChange={setTheme} />

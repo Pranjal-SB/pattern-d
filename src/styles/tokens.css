@@ -1,43 +1,48 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0b1020;
-  --panel: rgba(14, 20, 42, 0.9);
-  --text: #f0f2fb;
-  --muted: #8a96b8;
-  --border: rgba(255, 255, 255, 0.09);
-  --shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
-  --accent: #7866f2;
-  --accent-dim: rgba(120, 102, 242, 0.15);
-  --input-bg: rgba(255, 255, 255, 0.05);
-  --canvas-bg: #0d1428;
-  --danger: #e05252;
+  --bg: #08090f;
+  --panel: #0f1120;
+  --panel-raised: #161828;
+  --text: #eef0ff;
+  --muted: #7880a4;
+  --border: rgba(140, 130, 255, 0.18);
+  --shadow: 0 0 0 1px rgba(140, 130, 255, 0.12), 0 32px 80px rgba(0, 0, 0, 0.6);
+  --accent: #9d8fff;
+  --accent-vivid: #7866f2;
+  --accent-dim: rgba(157, 143, 255, 0.12);
+  --input-bg: #0b0d1a;
+  --canvas-bg: #0a0c18;
+  --danger: #f06060;
 }
 
 :root[data-theme='light'] {
-  --bg: #f0f2f9;
-  --panel: rgba(255, 255, 255, 0.92);
-  --text: #141c30;
-  --muted: #5a6680;
-  --border: rgba(20, 28, 48, 0.1);
-  --shadow: 0 24px 64px rgba(20, 28, 48, 0.1);
+  --bg: #f2f3ff;
+  --panel: #ffffff;
+  --panel-raised: #f7f8ff;
+  --text: #0e1030;
+  --muted: #6268a0;
+  --border: rgba(98, 83, 214, 0.2);
+  --shadow: 0 0 0 1px rgba(98, 83, 214, 0.14), 0 24px 64px rgba(14, 16, 48, 0.12);
   --accent: #6253d6;
+  --accent-vivid: #5444c4;
   --accent-dim: rgba(98, 83, 214, 0.1);
-  --input-bg: #ffffff;
-  --canvas-bg: #e8ebf5;
-  --danger: #c0392b;
+  --input-bg: #f0f1fc;
+  --canvas-bg: #e8eaff;
+  --danger: #d63c3c;
 }
 
 @layer utilities {
-  .bg-surface  { background: var(--panel); }
-  .bg-input    { background: var(--input-bg); }
-  .bg-accent   { background: var(--accent); }
-  .bg-accent-dim { background: var(--accent-dim); }
-  .bg-app      { background: var(--bg); }
-  .text-base   { color: var(--text); }
-  .text-muted  { color: var(--muted); }
-  .text-accent { color: var(--accent); }
-  .text-danger { color: var(--danger); }
-  .border-default { border-color: var(--border); }
-  .shadow-panel   { box-shadow: var(--shadow); }
+  .bg-surface      { background: var(--panel); }
+  .bg-raised       { background: var(--panel-raised); }
+  .bg-input        { background: var(--input-bg); }
+  .bg-accent       { background: var(--accent); }
+  .bg-accent-dim   { background: var(--accent-dim); }
+  .bg-app          { background: var(--bg); }
+  .text-base       { color: var(--text); }
+  .text-muted      { color: var(--muted); }
+  .text-accent     { color: var(--accent); }
+  .text-danger     { color: var(--danger); }
+  .border-default  { border-color: var(--border); }
+  .shadow-panel    { box-shadow: var(--shadow); }
 }
