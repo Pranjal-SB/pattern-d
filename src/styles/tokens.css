@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b1020;
+  --panel: rgba(14, 20, 42, 0.9);
+  --text: #f0f2fb;
+  --muted: #8a96b8;
+  --border: rgba(255, 255, 255, 0.09);
+  --shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  --accent: #7866f2;
+  --accent-dim: rgba(120, 102, 242, 0.15);
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --canvas-bg: #0d1428;
+  --danger: #e05252;
+}
+
+:root[data-theme='light'] {
+  --bg: #f0f2f9;
+  --panel: rgba(255, 255, 255, 0.92);
+  --text: #141c30;
+  --muted: #5a6680;
+  --border: rgba(20, 28, 48, 0.1);
+  --shadow: 0 24px 64px rgba(20, 28, 48, 0.1);
+  --accent: #6253d6;
+  --accent-dim: rgba(98, 83, 214, 0.1);
+  --input-bg: #ffffff;
+  --canvas-bg: #e8ebf5;
+  --danger: #c0392b;
+}
+
+@layer utilities {
+  .bg-surface  { background: var(--panel); }
+  .bg-input    { background: var(--input-bg); }
+  .bg-accent   { background: var(--accent); }
+  .bg-accent-dim { background: var(--accent-dim); }
+  .bg-app      { background: var(--bg); }
+  .text-base   { color: var(--text); }
+  .text-muted  { color: var(--muted); }
+  .text-accent { color: var(--accent); }
+  .text-danger { color: var(--danger); }
+  .border-default { border-color: var(--border); }
+  .shadow-panel   { box-shadow: var(--shadow); }
+}
