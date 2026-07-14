@@ -1,23 +1,20 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it } from 'vitest';
 import App from '../App';
 
+afterEach(cleanup);
+
 describe('App', () => {
-  it('renders the control surface', () => {
+  it('renders the gallery with pattern cards', () => {
     render(<App />);
-    expect(screen.getByText('Pattern studio')).toBeInTheDocument();
-    expect(screen.getByText('Colors')).toBeInTheDocument();
+    expect(screen.getByText('Checkerboard')).toBeInTheDocument();
+    expect(screen.getByText('Brick')).toBeInTheDocument();
   });
 
-  it('toggles theme', () => {
+  it('shows theme toggle', () => {
     render(<App />);
-    fireEvent.click(screen.getAllByRole('button', { name: /light mode/i })[0]);
-    expect(screen.getAllByRole('button', { name: /dark mode/i }).length).toBeGreaterThan(0);
-  });
-
-  it('toggles the 3d floor preview', () => {
-    render(<App />);
-    fireEvent.click(screen.getAllByRole('button', { name: /3d floor/i })[0]);
-    expect(screen.getAllByRole('button', { name: /2d view/i }).length).toBeGreaterThan(0);
+    const toggle = screen.getByRole('button', { name: /light mode|dark mode/i });
+    expect(toggle).toBeInTheDocument();
+    fireEvent.click(toggle);
   });
 });

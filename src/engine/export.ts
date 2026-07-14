@@ -1,12 +1,11 @@
 import { renderPattern } from './render';
-import { clamp } from './color';
 import { PatternConfig } from './types';
 
 export const MIN_EXPORT_SIZE = 256;
 export const MAX_EXPORT_SIZE = 6000;
 
 export async function renderToBlob(config: PatternConfig, size: number): Promise<Blob> {
-  const exportSize = clamp(Math.round(size), MIN_EXPORT_SIZE, MAX_EXPORT_SIZE);
+  const exportSize = Math.max(MIN_EXPORT_SIZE, Math.min(MAX_EXPORT_SIZE, Math.round(size)));
   const canvas = document.createElement('canvas');
   canvas.width = exportSize;
   canvas.height = exportSize;
