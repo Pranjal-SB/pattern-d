@@ -17,6 +17,13 @@ export function createDefaultConfig(): PatternConfig {
       angle: 2,
       amplitude: 24,
       frequency: 48,
+      spacing: 32,
+      brickWidth: 60,
+      brickHeight: 30,
+      size: 64,
+      scaleSize: 48,
+      lineWidth: 2,
+      width: 40,
     },
   };
 }

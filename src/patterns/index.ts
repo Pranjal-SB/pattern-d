@@ -1,3 +1,9 @@
+import { brickPattern } from './brick';
+import { concentricPattern } from './concentric';
+import { crosshatchPattern } from './crosshatch';
+import { diamondPattern } from './diamond';
+import { scalesPattern } from './scales';
+import { zigzagPattern } from './zigzag';
 import { checkerboardPattern } from './checkerboard';
 import { diagonalPattern } from './diagonal';
 import { gradientGridPattern } from './gradientGrid';
@@ -8,25 +14,30 @@ import { trianglesPattern } from './triangles';
 import { wavesPattern } from './waves';
 import { PatternModule } from '../engine/types';
 
-const PATTERN_REGISTRY: PatternModule[] = [
-  checkerboardPattern,
-  diagonalPattern,
-  polkaPattern,
-  hexagonPattern,
-  stripesPattern,
-  trianglesPattern,
-  wavesPattern,
-  gradientGridPattern,
-];
+const PATTERN_MAP = new Map<string, PatternModule>([
+  ['checkerboard', checkerboardPattern],
+  ['brick', brickPattern],
+  ['concentric', concentricPattern],
+  ['crosshatch', crosshatchPattern],
+  ['diagonal', diagonalPattern],
+  ['diamond', diamondPattern],
+  ['gradientGrid', gradientGridPattern],
+  ['hex', hexagonPattern],
+  ['polka', polkaPattern],
+  ['scales', scalesPattern],
+  ['stripes', stripesPattern],
+  ['triangles', trianglesPattern],
+  ['waves', wavesPattern],
+  ['zigzag', zigzagPattern],
+]);
 
-const PATTERN_MAP = new Map(PATTERN_REGISTRY.map((module) => [module.id, module] as const));
 
 export function getPatternModule(id: string): PatternModule | undefined {
   return PATTERN_MAP.get(id);
 }
 
 export function listPatternModules(): PatternModule[] {
-  return PATTERN_REGISTRY.slice();
+  return Array.from(PATTERN_MAP.values());
 }
 
 export function getPatternDefaultParams(id: string): Record<string, number> {

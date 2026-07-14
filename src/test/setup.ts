@@ -15,6 +15,11 @@ const canvasContext = {
   createLinearGradient: () => ({
     addColorStop: () => undefined,
   }),
+  createImageData: (w: number, h: number) => ({
+    width: w, height: h,
+    data: new Uint8ClampedArray(w * h * 4),
+  }),
+  putImageData: () => undefined,
   set fillStyle(_value: string) {},
   set strokeStyle(_value: string) {},
   set lineWidth(_value: number) {},

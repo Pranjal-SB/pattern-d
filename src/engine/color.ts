@@ -1,4 +1,4 @@
-export function clamp(value: number, min: number, max: number): number {
+function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }
 
@@ -25,9 +25,8 @@ export function hexToRgb(input: string): [number, number, number] {
 }
 
 export function rgbToHex(red: number, green: number, blue: number): string {
-  return [red, green, blue]
+  return '#' + [red, green, blue]
     .map((value) => clamp(Math.round(value), 0, 255).toString(16).padStart(2, '0'))
     .join('')
-    .toUpperCase()
-    .replace(/^/, '#');
+    .toUpperCase();
 }
